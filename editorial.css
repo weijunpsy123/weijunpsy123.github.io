@@ -20,7 +20,7 @@ body {
 .brand-mark { display: none; }
 
 .brand {
-  color: var(--black);
+  color: var(--electric);
   font-size: 18px;
   font-weight: 720;
   text-transform: none;
@@ -29,7 +29,7 @@ body {
 .nav-links {
   align-items: center;
   gap: 25px;
-  color: var(--black);
+  color: var(--electric);
   font-size: var(--small-text);
 }
 
@@ -195,13 +195,19 @@ h2 {
 .stat strong { font-size: 56px; font-weight: 520; }
 .stat span, .topic .num, .topic p, .panel p, .panel li { color: var(--black); }
 
-#research { background: var(--electric); }
+#research {
+  border-color: #fff;
+  background: var(--electric);
+}
 
 #research .kicker,
 #research h2,
 #research .topic .num,
 #research .topic h3,
 #research .topic p { color: #fff; }
+
+#research .research-grid,
+#research .topic { border-color: #fff; }
 
 .topic, .topic:nth-child(2), .topic:nth-child(3) {
   min-height: 380px;
@@ -250,7 +256,63 @@ h2 {
 .year, .paper p { color: var(--black); }
 .tag { color: var(--black); text-decoration: underline; text-underline-offset: 4px; }
 
-.panel { min-height: 440px; padding: 34px; }
+.split {
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.teaching-skills .split {
+  position: relative;
+  isolation: isolate;
+  grid-template-columns: 58% 42%;
+  overflow: hidden;
+}
+
+.teaching-skills .split::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: var(--electric);
+  clip-path: polygon(0 0, 65% 0, 39% 100%, 0 100%);
+  pointer-events: none;
+}
+
+.panel {
+  min-height: 440px;
+  padding: 34px;
+  border-top: 5px solid var(--black);
+  border-bottom: 2px solid var(--black);
+}
+
+.split .panel:first-child {
+  border-color: #fff;
+  color: #fff;
+  background: var(--electric);
+}
+
+.teaching-skills .panel {
+  position: relative;
+  z-index: 1;
+  min-height: 500px;
+  border: 0;
+  background: transparent;
+}
+
+.teaching-skills .panel:first-child {
+  padding-right: 110px;
+  background: transparent;
+}
+
+.teaching-skills .panel:last-child {
+  padding-left: 48px;
+}
+
+.split .panel:first-child ul,
+.split .panel:first-child li {
+  border-color: #fff;
+  color: #fff;
+}
 
 .panel h3 {
   margin: 0 0 44px;
@@ -286,8 +348,8 @@ h2 {
 
 .course-band {
   padding: 68px 0;
-  border-top: 2px solid var(--black);
-  border-bottom: 2px solid var(--black);
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
   background: var(--electric);
 }
 
@@ -306,7 +368,7 @@ h2 {
   height: 94px;
   display: grid;
   place-items: center;
-  border: 2px solid var(--black);
+  border: 2px solid #fff;
   border-radius: 50%;
   color: #fff;
   background: var(--black);
@@ -337,6 +399,14 @@ h2 {
   .stats, .research-grid, .split { grid-template-columns: 1fr; }
   .stat, .topic, .panel { border-right: 0; border-bottom: 2px solid var(--black); }
   .stat:last-child, .topic:last-child, .panel:last-child { border-bottom: 0; }
+  .teaching-skills .split { grid-template-columns: 1fr; overflow: visible; }
+  .teaching-skills .split::before { display: none; }
+  .teaching-skills .panel { min-height: auto; border: 0; }
+  .teaching-skills .panel:first-child {
+    padding-right: 34px;
+    background: var(--electric);
+  }
+  .teaching-skills .panel:last-child { padding-left: 34px; }
   .course-band .wrap { grid-template-columns: 1fr; }
 }
 
