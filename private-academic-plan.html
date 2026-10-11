@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Private Academic Development Plan · Weijun Liu</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #111114;
+      --muted: #656b75;
+      --quiet: #8b929d;
+      --paper: #ffffff;
+      --mist: #f5f7fa;
+      --line: rgba(18, 24, 33, .11);
+      --blue: #0068d6;
+      --navy: #0b3d76;
+      --shadow: 0 24px 70px rgba(18, 24, 33, .12);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: #fff;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background: #fdfdfb;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      width: min(1160px, calc(100% - 44px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      min-height: 54px;
+      padding: 0 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, .72);
+      background: rgba(255, 255, 255, .78);
+      backdrop-filter: saturate(180%) blur(18px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #222630;
+    }
+
+    body.locked .nav,
+    body.locked main {
+      display: none;
+    }
+
+    .password-gate {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 32px 22px;
+      background:
+        linear-gradient(135deg, rgba(20, 38, 61, .12) 0 28%, transparent 28% 100%),
+        #fdfdfb;
+    }
+
+    body:not(.locked) .password-gate {
+      display: none;
+    }
+
+    .gate-card {
+      width: min(560px, 100%);
+      padding: clamp(28px, 5vw, 52px);
+      border-top: 5px solid #14263d;
+      border-bottom: 2px solid #14263d;
+      background: #fff;
+      box-shadow: 0 24px 70px rgba(18, 24, 33, .12);
+    }
+
+    .gate-card .kicker {
+      margin-bottom: 18px;
+      color: #14263d;
+      font-size: 14px;
+      font-weight: 760;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .gate-card h1 {
+      margin: 0 0 18px;
+      color: #14263d;
+      font-size: clamp(44px, 7vw, 76px);
+      line-height: .92;
+      font-weight: 520;
+    }
+
+    .gate-card p {
+      margin: 0 0 28px;
+      color: #111114;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .password-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+    }
+
+    .password-row input,
+    .password-row button {
+      min-height: 52px;
+      border: 2px solid #14263d;
+      font: inherit;
+    }
+
+    .password-row input {
+      width: 100%;
+      padding: 0 16px;
+      color: #111114;
+      background: #fdfdfb;
+    }
+
+    .password-row button {
+      padding: 0 22px;
+      color: #fff;
+      background: #14263d;
+      cursor: pointer;
+    }
+
+    .gate-error {
+      min-height: 22px;
+      margin-top: 14px;
+      color: #9b1c1c;
+      font-size: 14px;
+    }
+
+    .gate-hint {
+      margin-top: 20px;
+      color: #656b75;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 560px) {
+      .password-row { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="stylesheet" href="editorial.css">
+</head>
+<body class="locked">
+  <div class="password-gate" aria-labelledby="gate-title">
+    <form class="gate-card" id="password-form">
+      <div class="kicker">Private Page</div>
+      <h1 id="gate-title">Academic plan</h1>
+      <p>This page contains a private three-year working plan. Enter the password to continue.</p>
+      <div class="password-row">
+        <input id="plan-password" type="password" autocomplete="current-password" placeholder="Password" aria-label="Password">
+        <button type="submit">Enter</button>
+      </div>
+      <div class="gate-error" id="gate-error" role="status" aria-live="polite"></div>
+      <div class="gate-hint">This is a lightweight password gate for a static GitHub Pages site.</div>
+    </form>
+  </div>
+
+  <nav class="nav" aria-label="Private page navigation">
+    <a class="brand" href="index.html" aria-label="Back to public homepage">
+      <span>WEIJUN LIU, PhD</span>
+    </a>
+  </nav>
+
+  <main>
+    <section id="three-year-plan" class="plan-section" aria-labelledby="plan-title">
+      <div class="wrap">
+        <div class="section-head plan-head">
+          <div>
+            <div class="kicker">Private Academic Planning</div>
+            <h2 id="plan-title">Academic Development Plan</h2>
+          </div>
+          <p class="lead">A private working plan for teaching commitment, publication pipeline, research funding, promotion preparation, and international postdoctoral development from January 2026 to December 2028.</p>
+        </div>
+
+        <div class="editable-note">Password-protected private page. Click any card to edit. Your edits are saved in this browser automatically.</div>
+
+        <div class="plan-grid">
+          <article class="plan-card teaching-load-card">
+            <div class="plan-card-label">Teaching Commitment</div>
+            <h3>172 hours per year</h3>
+            <div class="load-years" contenteditable="true" spellcheck="false" data-editable-key="teaching-load-plan" aria-label="Editable teaching-load plan">
+              <div>
+                <strong>Year 1 · 172 hours</strong>
+                <span>Health Psychology: 36 hours</span>
+                <span>Cognitive Neuroscience: 32 × 2 = 64 hours</span>
+                <span>General education course: 36 × 2 = 72 hours</span>
+              </div>
+              <div>
+                <strong>Year 2 · 172 hours</strong>
+                <span>Health Psychology: 36 hours</span>
+                <span>General education course: 72 hours</span>
+                <span>Cognitive Neuroscience: 32 × 2 = 64 hours</span>
+              </div>
+              <div>
+                <strong>Year 3 · 172 hours</strong>
+                <span>Health Psychology: 36 hours</span>
+                <span>General education course: 72 hours</span>
+                <span>Cognitive Neuroscience: 32 × 2 = 64 hours</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="plan-card plan-card-dark">
+            <div class="plan-card-label">2026.01–2028.12</div>
+            <h3>Publication Pipeline</h3>
+            <ul contenteditable="true" spellcheck="false" data-editable-key="academic-outputs-plan" aria-label="Editable publication plan">
+              <li>Publish three articles.</li>
+              <li>One Q1 article, such as <em>Journal of Environmental Psychology</em>.</li>
+              <li>One Q2 article, such as <em>Aggressive Behavior</em> or <em>Personality and Individual Differences</em>.</li>
+              <li>One additional article, such as <em>Communications Psychology</em>, <em>Behavioral Sciences</em>, or <em>PNAS Nexus</em>.</li>
+            </ul>
+          </article>
+
+          <article class="plan-card">
+            <div class="plan-card-label">Research Funding</div>
+            <h3>Grant Development</h3>
+            <ul contenteditable="true" spellcheck="false" data-editable-key="funding-plan" aria-label="Editable funding plan">
+              <li>Secure one provincial-level research grant.</li>
+              <li>Prepare and apply for a National Natural Science Foundation of China Young Scientists Fund project.</li>
+            </ul>
+          </article>
+
+          <article class="plan-card">
+            <div class="plan-card-label">Promotion Preparation</div>
+            <h3>Associate Senior Title</h3>
+            <ul contenteditable="true" spellcheck="false" data-editable-key="promotion-plan" aria-label="Editable promotion plan">
+              <li>Serve as a class adviser for one year, starting no earlier than September 2026 and no later than September 2027.</li>
+              <li>By September 2028, complete one full year of class-adviser service.</li>
+              <li>Target portfolio: three articles, one provincial-level grant, and one year of class-adviser service.</li>
+            </ul>
+          </article>
+
+          <article class="plan-card language-card">
+            <div class="plan-card-label">International Development</div>
+            <h3>Postdoctoral Preparation</h3>
+            <ul contenteditable="true" spellcheck="false" data-editable-key="english-plan" aria-label="Editable English plan">
+              <li>Develop fluent spoken English for future postdoctoral opportunities in the United States or Europe.</li>
+              <li>Achieve IELTS 7.0.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const expectedPasswordHash = "cfd7101f495d752b081ab6bf534d3165ae02de3eefcb3106af1cd81f4b45a842";
+
+    async function sha256(text) {
+      const data = new TextEncoder().encode(text);
+      const digest = await crypto.subtle.digest("SHA-256", data);
+      return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0")).join("");
+    }
+
+    function unlockPrivatePlan() {
+      document.body.classList.remove("locked");
+      sessionStorage.setItem("weijun-private-plan-unlocked", "true");
+      initializeEditablePlan();
+    }
+
+    function initializeEditablePlan() {
+      document.querySelectorAll("[data-editable-key]").forEach((block) => {
+        if (block.dataset.editorReady === "true") return;
+        block.dataset.editorReady = "true";
+        const key = `weijun-private-plan-${block.dataset.editableKey}`;
+        try {
+          const saved = localStorage.getItem(key);
+          if (saved) block.innerHTML = saved;
+          block.addEventListener("input", () => {
+            localStorage.setItem(key, block.innerHTML);
+          });
+        } catch (error) {
+          block.dataset.saveUnavailable = "true";
+        }
+      });
+    }
+
+    if (sessionStorage.getItem("weijun-private-plan-unlocked") === "true") {
+      unlockPrivatePlan();
+    }
+
+    document.getElementById("password-form").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const input = document.getElementById("plan-password");
+      const error = document.getElementById("gate-error");
+      const enteredHash = await sha256(input.value);
+      if (enteredHash === expectedPasswordHash) {
+        input.value = "";
+        error.textContent = "";
+        unlockPrivatePlan();
+      } else {
+        error.textContent = "Incorrect password. Please try again.";
+        input.select();
+      }
+    });
+  </script>
+</body>
+</html>
